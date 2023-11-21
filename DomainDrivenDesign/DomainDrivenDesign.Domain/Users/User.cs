@@ -8,6 +8,7 @@ public sealed class User : Entity
     {
 
     }
+    //NOTE: Here is private and can not be called for DDD/Factories we are using CreateUser factory to have more control and encapsulations.
     private User(Guid id, Name name, Email email, Password password, Address address) : base(id)
     {
         Name = name;
@@ -21,6 +22,7 @@ public sealed class User : Entity
     public Password Password { get; private set; }
     public Address Address { get; private set; }
 
+    // NOTE: The CreateUser Factory simplifies object creation by encapsulating the details and applying necessary business rules.
     public static User CreateUser(string name, string email, string password, string country, string city, string street, string postalCode, string fullAddress)
     {
         //Business Rules

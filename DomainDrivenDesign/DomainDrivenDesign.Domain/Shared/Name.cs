@@ -1,6 +1,7 @@
 ﻿namespace DomainDrivenDesign.Domain.Shared;
 
 //NOTE: sealed class: prevents this class from being inherited into another class.
+//NOTE: we are using same for categories, products and users so we moved it in shared.
 public sealed record Name
 {
     public string Value { get; init; }//NOTE:We used 'init' to ensure that it cannot be modified after the first acquisition in constructor
