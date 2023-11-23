@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainDrivenDesign.Infrastr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainDrivenDesign.PresentationWebApi", "DomainDrivenDesign.PresentationWebApi\DomainDrivenDesign.PresentationWebApi.csproj", "{5984C8E2-77CC-4640-A55D-C9588090989B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticSearchBaris", "ElasticSearchBaris\ElasticSearchBaris.csproj", "{661ECD19-8F84-40EE-A66D-F64223E60F04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{5984C8E2-77CC-4640-A55D-C9588090989B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5984C8E2-77CC-4640-A55D-C9588090989B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5984C8E2-77CC-4640-A55D-C9588090989B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{661ECD19-8F84-40EE-A66D-F64223E60F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{661ECD19-8F84-40EE-A66D-F64223E60F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{661ECD19-8F84-40EE-A66D-F64223E60F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{661ECD19-8F84-40EE-A66D-F64223E60F04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
