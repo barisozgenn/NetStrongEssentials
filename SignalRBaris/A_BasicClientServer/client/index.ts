@@ -1,6 +1,9 @@
-import * as productViewersHub from "./hubs/productViewersHubWithLogging";
-import * as stringParametersHub from "./hubs/stringParametersHub";
+import * as productViewersWithLoggingHub from "./hubs/productViewersHubWithLogging";
+import * as stringParametersFromClientHub from "./hubs/stringParametersFromClientHub";
+import * as musicPlayCountFromServerHub from "./hubs/musicPlayCountFromServerHub";
+import * as groupsHub from "./hubs/groupsHub";
 
-
-productViewersHub.configureProductViewersHubWithLogging();
-stringParametersHub.configureStringParametersHub();
+productViewersWithLoggingHub.configureProductViewersHubWithLogging();
+stringParametersFromClientHub.configureStringParametersHub();
+musicPlayCountFromServerHub.configureMusicPlayCountFromServerHub();
+groupsHub.configureGroupsHub();
