@@ -3,9 +3,9 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 
-public class StringToolsHub : Hub
+public class StringParametersHub : Hub
 {
-    public string GetFullName(string firstName, string lastName){
+    public string GetUserName(string firstName, string lastName){
         return $"{firstName} {lastName}";
     }
 }
