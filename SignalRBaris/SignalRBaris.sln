@@ -5,16 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A_BasicClientServer", "A_BasicClientServer\A_BasicClientServer.csproj", "{8E80E7FD-6D45-469C-8161-85CBE01EA1B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K_DependencyInjection", "K_DependencyInjection\K_DependencyInjection.csproj", "{04DF5D12-0902-450A-A918-E8B869847DA5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "J_Reconnection", "J_Reconnection\J_Reconnection.csproj", "{D51FDEBD-8141-427A-A434-DDB34FCA888D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I_HubLifecycle", "I_HubLifecycle\I_HubLifecycle.csproj", "{1D64AC46-5768-4334-9194-2D5D13FB2129}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H_HubContextOutsideHub", "H_HubContextOutsideHub\H_HubContextOutsideHub.csproj", "{F360DABF-11FB-438D-8883-45EBF5FC4250}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G_MessageSizes", "G_MessageSizes\G_MessageSizes.csproj", "{7D12979A-2914-494F-8EEC-B330057CFA8F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,25 +18,5 @@ Global
 		{8E80E7FD-6D45-469C-8161-85CBE01EA1B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E80E7FD-6D45-469C-8161-85CBE01EA1B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E80E7FD-6D45-469C-8161-85CBE01EA1B9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{04DF5D12-0902-450A-A918-E8B869847DA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{04DF5D12-0902-450A-A918-E8B869847DA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{04DF5D12-0902-450A-A918-E8B869847DA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{04DF5D12-0902-450A-A918-E8B869847DA5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D51FDEBD-8141-427A-A434-DDB34FCA888D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D51FDEBD-8141-427A-A434-DDB34FCA888D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D51FDEBD-8141-427A-A434-DDB34FCA888D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D51FDEBD-8141-427A-A434-DDB34FCA888D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D64AC46-5768-4334-9194-2D5D13FB2129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D64AC46-5768-4334-9194-2D5D13FB2129}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D64AC46-5768-4334-9194-2D5D13FB2129}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D64AC46-5768-4334-9194-2D5D13FB2129}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F360DABF-11FB-438D-8883-45EBF5FC4250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F360DABF-11FB-438D-8883-45EBF5FC4250}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F360DABF-11FB-438D-8883-45EBF5FC4250}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F360DABF-11FB-438D-8883-45EBF5FC4250}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D12979A-2914-494F-8EEC-B330057CFA8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D12979A-2914-494F-8EEC-B330057CFA8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D12979A-2914-494F-8EEC-B330057CFA8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D12979A-2914-494F-8EEC-B330057CFA8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

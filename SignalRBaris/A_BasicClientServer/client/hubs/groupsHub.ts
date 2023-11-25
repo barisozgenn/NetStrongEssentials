@@ -1,4 +1,5 @@
 import * as signalR from "@microsoft/signalr";
+import CustomReconnectionPolicy from "../policies/customReconnectionPolicy";
 export function configureGroupsHub() {
 
     let btnJoinIT = document.getElementById("btnJoinIT");
@@ -11,6 +12,7 @@ export function configureGroupsHub() {
     // create connection
     let connection = new signalR.HubConnectionBuilder()
         .withUrl("/hub/groups")
+        .withAutomaticReconnect(new CustomReconnectionPolicy())
         .build();
 
     btnJoinIT.addEventListener("click", () => { connection.invoke("JoinGroup", "IT"); });
