@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisCacheBaris", "RedisCacheBaris\RedisCacheBaris.csproj", "{631F6E79-509D-4DF2-BFA1-6A0E51133E33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InMemoryCacheBaris", "InMemoryCacheBaris\InMemoryCacheBaris.csproj", "{2576AA76-1B5F-4D30-9610-4C32961E3438}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{631F6E79-509D-4DF2-BFA1-6A0E51133E33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631F6E79-509D-4DF2-BFA1-6A0E51133E33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631F6E79-509D-4DF2-BFA1-6A0E51133E33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631F6E79-509D-4DF2-BFA1-6A0E51133E33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2576AA76-1B5F-4D30-9610-4C32961E3438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2576AA76-1B5F-4D30-9610-4C32961E3438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2576AA76-1B5F-4D30-9610-4C32961E3438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2576AA76-1B5F-4D30-9610-4C32961E3438}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
