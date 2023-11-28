@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitmqHelloWorld.Publishe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitmqHelloWorld.Subscriber", "RabbitmqHelloWorld.Subscriber\RabbitmqHelloWorld.Subscriber.csproj", "{492A7352-3994-4F8F-8890-F48125C5BAFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitmqHelloWorld.Shared", "RabbitmqHelloWorld.Shared\RabbitmqHelloWorld.Shared.csproj", "{374C8657-BC04-4B7A-B880-75EB0AD584F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{492A7352-3994-4F8F-8890-F48125C5BAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{492A7352-3994-4F8F-8890-F48125C5BAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{492A7352-3994-4F8F-8890-F48125C5BAFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{374C8657-BC04-4B7A-B880-75EB0AD584F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{374C8657-BC04-4B7A-B880-75EB0AD584F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{374C8657-BC04-4B7A-B880-75EB0AD584F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{374C8657-BC04-4B7A-B880-75EB0AD584F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

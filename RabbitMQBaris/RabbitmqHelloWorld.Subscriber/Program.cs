@@ -1,6 +1,5 @@
 ﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using Shared;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,7 +20,6 @@ namespace RabbitmqHelloWorld.Subscriber
             //create channel to communicate on
             var channel = connection.CreateModel();
             #region Simple Message receive queue Default Exchange
-            /*
             //queue name, durable: false: in mermory & true: save physically, exclusive: is same channel or different, autodelete if subcribers down queue will be deleted?
             //NOTE: we can active it if our channel wasn't created by publisher. channel.QueueDeclare("hello-queue-baris", true, false, false);
             //NOTE: message size, message count to be sent at the same time, true: separate message count for all instance, false: sent message count each instance
@@ -34,7 +32,7 @@ namespace RabbitmqHelloWorld.Subscriber
                 Console.WriteLine("received message: "+ message);
                 //NOTE: now we are deleting our message manually
                 channel.BasicAck(e.DeliveryTag, false);
-            };*/
+            };
             #endregion
             Console.ReadLine();
         }

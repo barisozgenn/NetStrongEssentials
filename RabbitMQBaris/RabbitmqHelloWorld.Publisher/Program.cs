@@ -21,13 +21,13 @@ namespace RabbitmqHelloWorld.Publisher
 
             #region Simple Message sent queue Default Exchange Type
             //NOTE: queue name, durable: false: in mermory & true: save physically, exclusive: is same channel or different, autodelete if subcribers down queue will be deleted?
-            //channel.QueueDeclare("hello-queue-baris", true, false, false);
-            //Enumerable.Range(1,50).ToList().ForEach(it => {
-            //string message = $"baris mesaj {it}";
-            //var messageBody = Encoding.UTF8. GetBytes(message);
-            //channel.BasicPublish(string.Empty, "hello-queue-baris", null, messageBody);
-            //Console.WriteLine($"Message is sent: {message}");
-            //});
+            channel.QueueDeclare("hello-queue-baris", true, false, false);
+            Enumerable.Range(1,50).ToList().ForEach(it => {
+            string message = $"baris mesaj {it}";
+            var messageBody = Encoding.UTF8. GetBytes(message);
+            channel.BasicPublish(string.Empty, "hello-queue-baris", null, messageBody);
+            Console.WriteLine($"Message is sent: {message}");
+            });
             #endregion
 
             Console.ReadLine();

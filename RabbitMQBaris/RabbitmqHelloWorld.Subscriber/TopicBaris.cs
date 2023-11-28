@@ -4,7 +4,7 @@ using RabbitMQ.Client.Events;
 
 namespace RabbitmqHelloWorld.Subscriber;
 
-public class FanoutBaris
+public class TopicBaris
 {
 static void Main(string[] args)
         {
