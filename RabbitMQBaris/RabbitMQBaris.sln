@@ -3,6 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitmqHelloWorld.Publisher", "RabbitmqHelloWorld.Publisher\RabbitmqHelloWorld.Publisher.csproj", "{F1E16089-656E-44EA-B1FA-39D649CB2705}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitmqHelloWorld.Subscriber", "RabbitmqHelloWorld.Subscriber\RabbitmqHelloWorld.Subscriber.csproj", "{492A7352-3994-4F8F-8890-F48125C5BAFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitmqHelloWorld.Shared", "RabbitmqHelloWorld.Shared\RabbitmqHelloWorld.Shared.csproj", "{374C8657-BC04-4B7A-B880-75EB0AD584F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQWaterMark.Web", "RabbitMQWaterMark.Web\RabbitMQWaterMark.Web.csproj", "{8F19E724-8066-414C-B25E-413DB413DD1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQExcel.Web", "RabbitMQExcel.Web\RabbitMQExcel.Web.csproj", "{33E362AD-07DE-4B5F-8BD6-3DE8716311B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQExcel.Messages", "RabbitMQExcel.Messages\RabbitMQExcel.Messages.csproj", "{FA7CE2C3-0750-4BAB-9285-BBB6129F7835}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQExcelWorkerService", "RabbitMQExcelWorkerService\RabbitMQExcelWorkerService.csproj", "{188926BE-9E4F-4694-BAA3-A2476365732A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +24,35 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1E16089-656E-44EA-B1FA-39D649CB2705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E16089-656E-44EA-B1FA-39D649CB2705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E16089-656E-44EA-B1FA-39D649CB2705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E16089-656E-44EA-B1FA-39D649CB2705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{492A7352-3994-4F8F-8890-F48125C5BAFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492A7352-3994-4F8F-8890-F48125C5BAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492A7352-3994-4F8F-8890-F48125C5BAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492A7352-3994-4F8F-8890-F48125C5BAFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{374C8657-BC04-4B7A-B880-75EB0AD584F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{374C8657-BC04-4B7A-B880-75EB0AD584F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{374C8657-BC04-4B7A-B880-75EB0AD584F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{374C8657-BC04-4B7A-B880-75EB0AD584F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F19E724-8066-414C-B25E-413DB413DD1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F19E724-8066-414C-B25E-413DB413DD1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F19E724-8066-414C-B25E-413DB413DD1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F19E724-8066-414C-B25E-413DB413DD1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33E362AD-07DE-4B5F-8BD6-3DE8716311B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33E362AD-07DE-4B5F-8BD6-3DE8716311B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33E362AD-07DE-4B5F-8BD6-3DE8716311B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33E362AD-07DE-4B5F-8BD6-3DE8716311B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA7CE2C3-0750-4BAB-9285-BBB6129F7835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA7CE2C3-0750-4BAB-9285-BBB6129F7835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA7CE2C3-0750-4BAB-9285-BBB6129F7835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA7CE2C3-0750-4BAB-9285-BBB6129F7835}.Release|Any CPU.Build.0 = Release|Any CPU
+		{188926BE-9E4F-4694-BAA3-A2476365732A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{188926BE-9E4F-4694-BAA3-A2476365732A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{188926BE-9E4F-4694-BAA3-A2476365732A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{188926BE-9E4F-4694-BAA3-A2476365732A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
