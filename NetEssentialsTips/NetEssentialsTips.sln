@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Record", "Record\Record.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{33ACAA60-5E68-492D-B627-7C7AC090432F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolidBaris", "SolidBaris\SolidBaris.csproj", "{C622535D-A8A4-49CB-B49C-8A2F33842CA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,5 +116,9 @@ Global
 		{33ACAA60-5E68-492D-B627-7C7AC090432F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33ACAA60-5E68-492D-B627-7C7AC090432F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33ACAA60-5E68-492D-B627-7C7AC090432F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C622535D-A8A4-49CB-B49C-8A2F33842CA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C622535D-A8A4-49CB-B49C-8A2F33842CA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C622535D-A8A4-49CB-B49C-8A2F33842CA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C622535D-A8A4-49CB-B49C-8A2F33842CA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
