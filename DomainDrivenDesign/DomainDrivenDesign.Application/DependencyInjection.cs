@@ -1,28 +1,37 @@
-﻿using DomainDrivenDesign.Domain.Abstractions;
+using DomainDrivenDesign.Domain.Abstractions;
 using DomainDrivenDesign.Domain.Users;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace DomainDrivenDesign.Application;// This static class extends the IServiceCollection interface, allowing for fluent syntax when configuring services.
-// NOTE: This static class extends the IServiceCollection interface, allowing for fluent syntax when configuring services.
-public static class DependencyInjection
+namespace DomainDrivenDesign.Application
 {
-    // Extension method to add application-specific services to the IServiceCollection.
-    public static IServiceCollection AddApplication(
-        this IServiceCollection services)
+    /// <summary>
+    /// Provides extension methods for configuring application-specific services.
+    /// </summary>
+    /// <remarks>
+    /// This static class extends the <see cref="IServiceCollection"/> interface,
+    /// enabling fluent syntax when configuring services within the application.
+    /// </remarks>
+    public static class DependencyInjection
     {
-        // Use MediatR to register Mediator and handlers.
-        services.AddMediatR(cfr =>
+        /// <summary>
+        /// Adds application-specific services to the provided <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection"/> to which services will be added.</param>
+        /// <returns>The updated <see cref="IServiceCollection"/> with application services registered.</returns>
+        public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            // Register services from the executing assembly (typically the application assembly)
-            // and the assembly containing the Entity class.
-            cfr.RegisterServicesFromAssemblies(
-                Assembly.GetExecutingAssembly(), // Register services from the application assembly.
-                typeof(Entity).Assembly);        // Register services from the assembly containing the Entity class.
-        });
+            // Configure MediatR for handling requests and notifications within the application.
+            services.AddMediatR(config =>
+            {
+                // Register all MediatR handlers from the executing assembly and the assembly containing the Entity class.
+                config.RegisterServicesFromAssemblies(
+                    Assembly.GetExecutingAssembly(), // Registers handlers from the current application assembly.
+                    typeof(Entity).Assembly);        // Registers handlers from the Domain.Abstractions assembly.
+            });
 
-        // Return the modified IServiceCollection to support method chaining.
-        return services;
+            // Return the modified IServiceCollection to support method chaining.
+            return services;
+        }
     }
 }
-
