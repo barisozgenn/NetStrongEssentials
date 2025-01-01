@@ -1,48 +1,76 @@
 ﻿using DomainDrivenDesign.Domain.Abstractions;
 using DomainDrivenDesign.Domain.Shared;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace DomainDrivenDesign.Domain.Orders
 {
-    // NOTE: Sealed class prevents this class from being inherited into another class.
-// Design Patterns:
-// Factory Method Pattern: The private constructor is used as a factory method for creating instances of the Order class.
-// Repository Pattern: The collection of OrderLines represents an association and can be considered a form of repository for OrderLine entities associated with an Order. This allows easy manipulation of associated order lines.
-// Value Object Pattern: The Money class is a value object representing the amount and currency, ensuring immutability and equality based on content.
+    /// <summary>
+    /// Represents an order within the domain.
+    /// </summary>
+    /// <remarks>
+    /// A <see cref="Order"/> aggregates one or more <see cref="OrderLine"/> entities and maintains the overall state and behavior of an order.
+    /// Implements various design patterns including Factory Method, Repository, and Value Object patterns.
+    /// </remarks>
     public sealed class Order : Entity
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Order"/> class with the specified identifier.
+        /// </summary>
+        /// <param name="id">The unique identifier for the order.</param>
         private Order(Guid id) : base(id)
         {
-            // Private constructor to be used internally for creating instances.
+            // Private constructor to enforce the use of public constructors for object creation.
         }
-        // Constructor for creating a new Order with essential properties.
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Order"/> class with essential properties.
+        /// </summary>
+        /// <param name="id">The unique identifier for the order.</param>
+        /// <param name="orderNumber">The order number.</param>
+        /// <param name="createdDate">The date the order was created.</param>
+        /// <param name="status">The current status of the order.</param>
         public Order(Guid id, string orderNumber, DateTime createdDate, OrderStatusEnum status) : base(id)
         {
             OrderNumber = orderNumber;
             CreatedDate = createdDate;
             Status = status;
+            OrderLines = new List<OrderLine>();
         }
-        // Properties of the Order class.
+
+        /// <summary>
+        /// Gets the order number.
+        /// </summary>
         public string OrderNumber { get; private set; }
+
+        /// <summary>
+        /// Gets the date the order was created.
+        /// </summary>
         public DateTime CreatedDate { get; private set; }
+
+        /// <summary>
+        /// Gets the current status of the order.
+        /// </summary>
         public OrderStatusEnum Status { get; private set; }
-        // ICollection to represent a collection of OrderLine entities associated with this Order.
-        //ICollection<OrderLine> interface. List<T> is a dynamic array that provides methods for adding, removing, and manipulating elements in a list.
+
+        /// <summary>
+        /// Gets the collection of order lines associated with this order.
+        /// </summary>
         public ICollection<OrderLine> OrderLines { get; private set; } = new List<OrderLine>();
-        // Method to create an order based on a list of CreateOrderDto objects.
+
+        /// <summary>
+        /// Creates order lines based on the provided list of <see cref="CreateOrderDto"/> objects.
+        /// </summary>
+        /// <param name="createOrderDtos">A list of DTOs containing order line details.</param>
+        /// <exception cref="ArgumentException">Thrown when an order line has a quantity less than 1.</exception>
         public void CreateOrder(List<CreateOrderDto> createOrderDtos)
         {
             foreach (var item in createOrderDtos)
             {
                 if (item.Quantity < 1)
                 {
-                    // Throw an exception if the quantity is less than 1.
                     throw new ArgumentException("Order quantity cannot be less than 1!");
                 }
 
-                // Additional business rules can be added here.
+                // TODO: Add additional business rules as necessary.
 
                 // Create a new OrderLine based on the provided data.
                 OrderLine orderLine = new(
@@ -51,19 +79,25 @@ namespace DomainDrivenDesign.Domain.Orders
                     item.ProductId,
                     item.Quantity,
                     new Money(item.Amount, Currency.FromCode(item.Currency)));
+
                 // Add the created OrderLine to the collection of OrderLines.
                 OrderLines.Add(orderLine);
             }
         }
-        // Method to remove an OrderLine from the collection based on its id.
+
+        /// <summary>
+        /// Removes an order line from the order based on its unique identifier.
+        /// </summary>
+        /// <param name="orderLineId">The unique identifier of the order line to remove.</param>
+        /// <exception cref="ArgumentException">Thrown when the specified order line is not found.</exception>
         public void RemoveOrderLine(Guid orderLineId)
         {
             var orderLine = OrderLines.FirstOrDefault(p => p.Id == orderLineId);
             if (orderLine is null)
             {
-                // Throw an exception if the OrderLine to be removed is not found.
                 throw new ArgumentException("The order line you want to delete could not be found!");
             }
+
             // Remove the specified OrderLine from the collection.
             OrderLines.Remove(orderLine);
         }

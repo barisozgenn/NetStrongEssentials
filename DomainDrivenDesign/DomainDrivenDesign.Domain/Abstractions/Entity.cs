@@ -1,59 +1,71 @@
-﻿namespace DomainDrivenDesign.Domain.Abstractions;
+﻿using MediatR;
+using System;
 
-//NOTE: abstract class: An abstract class can only be inherited by another classes, providing a template for shared methods and properties.
-public abstract class Entity : IEquatable<Entity>
+namespace DomainDrivenDesign.Domain.Abstractions
 {
-    //NOTE: We used 'init' to ensure that it cannot be modified after acquisition; Only single time it is filled.
-    public Guid Id { get; init; }
-    public Entity(Guid id)
+    /// <summary>
+    /// Represents the base entity with a unique identifier.
+    /// </summary>
+    /// <remarks>
+    /// This abstract class serves as a base for all domain entities, ensuring each has a unique <see cref="Id"/>.
+    /// Implements <see cref="IEquatable{T}"/> to provide a standardized way of comparing entities based on their identifiers.
+    /// </remarks>
+    public abstract class Entity : IEquatable<Entity>
     {
-        Id = id;
-    }
-    //NOTE: Determines whether the specified object is equal to the current entity also by their guid ID, its using suggested by DDD
-    // it is like unboxing and converts objects to type and it is a bit lower than IEquatable.Equals method.
-    public override bool Equals(object? obj)
-    {
-        if(obj is null)
+        /// <summary>
+        /// Gets the unique identifier for the entity.
+        /// </summary>
+        /// <remarks>
+        /// The 'init' accessor ensures that the <see cref="Id"/> can only be set during object initialization, promoting immutability.
+        /// </remarks>
+        public Guid Id { get; init; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Entity"/> class with the specified identifier.
+        /// </summary>
+        /// <param name="id">The unique identifier for the entity.</param>
+        protected Entity(Guid id)
         {
-            return false;
+            Id = id;
         }
 
-        if(obj is not Entity entity)
+        /// <summary>
+        /// Determines whether the specified object is equal to the current entity based on their unique identifiers.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current entity.</param>
+        /// <returns><c>true</c> if the specified object is equal to the current entity; otherwise, <c>false</c>.</returns>
+        public override bool Equals(object? obj)
         {
-            return false;
+            if (obj is null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            return obj is Entity entity && entity.Id == Id;
         }
 
-        if(obj.GetType() != GetType())
+        /// <summary>
+        /// Returns a hash code for the current entity based on its unique identifier.
+        /// </summary>
+        /// <returns>A hash code for the current entity.</returns>
+        public override int GetHashCode()
         {
-            return false;
+            return Id.GetHashCode();
         }
 
-        return entity.Id == Id;
-    }
-
-    //NOTE: it works for hash set lists and determines whether the specified list is equal to the current entity also by their guid ID, its using suggested by DDD
-    public override int GetHashCode()
-    {
-        return Id.GetHashCode();
-    }
-    //NOTE: It comes from IEquatable<Entity> , compare objects without unboxing
-    public bool Equals(Entity? other)
-    {
-        if (other is null)
+        /// <summary>
+        /// Determines whether the specified <see cref="Entity"/> is equal to the current entity based on their unique identifiers.
+        /// </summary>
+        /// <param name="other">The entity to compare with the current entity.</param>
+        /// <returns><c>true</c> if the specified entity is equal to the current entity; otherwise, <c>false</c>.</returns>
+        public bool Equals(Entity? other)
         {
-            return false;
-        }
+            if (other is null || GetType() != other.GetType())
+            {
+                return false;
+            }
 
-        if (other is not Entity entity)
-        {
-            return false;
+            return other.Id == Id;
         }
-
-        if (other.GetType() != GetType())
-        {
-            return false;
-        }
-
-        return entity.Id == Id;
     }
 }

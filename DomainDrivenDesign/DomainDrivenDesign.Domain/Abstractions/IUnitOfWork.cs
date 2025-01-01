@@ -1,7 +1,21 @@
-﻿namespace DomainDrivenDesign.Domain.Abstractions;
-//NOTE: In DDD, the Unit of Work pattern ensures that a set of operations is treated as a single, atomic transaction, allowing for consistent state changes or rollbacks across multiple repositories.
-//NOTE: A Unit of Work is a design pattern that groups a set of related operations, typically database transactions, to maintain consistency and ensure that either all operations succeed or none do.
-public interface IUnitOfWork
+﻿namespace DomainDrivenDesign.Domain.Abstractions
 {
-    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+    /// <summary>
+    /// Represents the Unit of Work pattern, coordinating the work of multiple repositories by ensuring that changes are committed as a single transaction.
+    /// </summary>
+    /// <remarks>
+    /// The Unit of Work pattern maintains a list of objects affected by a business transaction and coordinates the writing out of changes and the resolution of concurrency problems.
+    /// It ensures that either all operations within the transaction are completed successfully or none are applied, maintaining data consistency.
+    /// </remarks>
+    public interface IUnitOfWork
+    {
+        /// <summary>
+        /// Commits all changes made in the context to the underlying data store.
+        /// </summary>
+        /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+        /// <returns>
+        /// A task representing the asynchronous operation. The task result contains the number of state entries written to the underlying data store.
+        /// </returns>
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+    }
 }

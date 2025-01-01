@@ -1,13 +1,27 @@
 ﻿using MediatR;
 
-namespace DomainDrivenDesign.Domain.Orders.Events;
-//NOTE: sealed class: prevents this class from being inherited into another class.
-//NOTE: Here is DDD/Technical Design/Domain Events with mediatR nuget.
-public sealed class OrderDomainEvent : INotification
+namespace DomainDrivenDesign.Domain.Orders.Events
 {
-    public Order Order { get; }
-    public OrderDomainEvent(Order order)
+    /// <summary>
+    /// Represents a domain event that occurs when an order is created.
+    /// </summary>
+    /// <remarks>
+    /// Implements <see cref="INotification"/> to enable publishing through MediatR.
+    /// </remarks>
+    public sealed class OrderDomainEvent : INotification
     {
-        Order = order;
+        /// <summary>
+        /// Gets the order associated with this event.
+        /// </summary>
+        public Order Order { get; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OrderDomainEvent"/> class with the specified order.
+        /// </summary>
+        /// <param name="order">The order that was created.</param>
+        public OrderDomainEvent(Order order)
+        {
+            Order = order;
+        }
     }
 }

@@ -1,10 +1,20 @@
-﻿namespace DomainDrivenDesign.Domain.Orders;
-//NOTE: sealed class: prevents this class from being inherited into another class.
-// DTO stands for Data Transfer Object
-//The primary purpose of a DTO is to encapsulate and transfer data in a structured format, often used in situations where different components or layers of a system need to exchange data.
-//DTOs are used to reduce the number of method calls and minimize the data transferred over the network, as opposed to sending individual pieces of data.
-public sealed record CreateOrderDto(
-    Guid ProductId,
-    int Quantity,
-    decimal Amount,
-    string Currency);
+﻿using System;
+
+namespace DomainDrivenDesign.Domain.Orders
+{
+    /// <summary>
+    /// Data Transfer Object (DTO) for creating a new order line.
+    /// </summary>
+    /// <remarks>
+    /// Encapsulates the necessary data required to create an order line, facilitating efficient data transfer between layers.
+    /// </remarks>
+    /// <param name="ProductId">The unique identifier of the product being ordered.</param>
+    /// <param name="Quantity">The quantity of the product to order.</param>
+    /// <param name="Amount">The price per unit of the product.</param>
+    /// <param name="Currency">The currency in which the amount is denominated.</param>
+    public sealed record CreateOrderDto(
+        Guid ProductId,
+        int Quantity,
+        decimal Amount,
+        string Currency);
+}
