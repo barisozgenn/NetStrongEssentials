@@ -1,33 +1,62 @@
-﻿using System.Diagnostics.Tracing;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace DomainDrivenDesign.Domain.Shared;
-//NOTE: sealed class: prevents this class from being inherited into another class.
-public sealed record Currency
+namespace DomainDrivenDesign.Domain.Shared
 {
-    // Define a public static readonly instance representing the absence of currency.
-    // it can not be reachable out of this layer
-    internal static readonly Currency None = new("");
-    // Define public static readonly instances for common currencies.
-    public static readonly Currency USD = new("USD");
-    public static readonly Currency TRY = new("TRY");
-    // Define a property to hold the currency code.
-    public string Code { get; init; }
-    // Private constructor ensures that instances can only be created within the class.
-    // This promotes encapsulation, restricting external code from creating instances directly.
-    private Currency(string code)
+    /// <summary>
+    /// Represents a currency with a specific code.
+    /// </summary>
+    /// <remarks>
+    /// Implements the Value Object pattern, ensuring immutability and equality based on the <see cref="Code"/>.
+    /// </remarks>
+    public sealed record Currency
     {
-        Code = code;
-    }
-    // Factory method to create a Currency instance based on the provided code.
-    // This provides a controlled way to create instances, enforcing business rules if needed.
-    public static Currency FromCode(string code)
-    {
-        // Try to find a matching currency instance, otherwise throw an exception.
-        return All.FirstOrDefault(p => p.Code == code) ??
-            throw new ArgumentException("Invalid currency code!");
-    }
-    // Define a public static readonly collection containing all valid currency instances.
-    // IReadOnlyCollection ensures that external code cannot modify the collection.
-    public static readonly IReadOnlyCollection<Currency> All = new[] { USD, TRY };
-}
+        /// <summary>
+        /// Represents the absence of a specific currency.
+        /// </summary>
+        internal static readonly Currency None = new("");
 
+        /// <summary>
+        /// Represents the US Dollar currency.
+        /// </summary>
+        public static readonly Currency USD = new("USD");
+
+        /// <summary>
+        /// Represents the Turkish Lira currency.
+        /// </summary>
+        public static readonly Currency TRY = new("TRY");
+
+        /// <summary>
+        /// Gets the code of the currency.
+        /// </summary>
+        public string Code { get; init; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Currency"/> record with the specified code.
+        /// </summary>
+        /// <param name="code">The currency code.</param>
+        private Currency(string code)
+        {
+            Code = code;
+        }
+
+        /// <summary>
+        /// Creates a <see cref="Currency"/> instance based on the provided code.
+        /// </summary>
+        /// <param name="code">The currency code.</param>
+        /// <returns>A <see cref="Currency"/> instance corresponding to the provided code.</returns>
+        /// <exception cref="ArgumentException">Thrown when the provided currency code is invalid.</exception>
+        public static Currency FromCode(string code)
+        {
+            // Attempt to find a matching currency; throw an exception if not found.
+            return All.FirstOrDefault(p => p.Code == code) ??
+                throw new ArgumentException("Invalid currency code!");
+        }
+
+        /// <summary>
+        /// Gets all predefined valid currency instances.
+        /// </summary>
+        public static readonly IReadOnlyCollection<Currency> All = new[] { USD, TRY };
+    }
+}
