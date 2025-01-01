@@ -1,20 +1,40 @@
-﻿namespace DomainDrivenDesign.Domain.Users;
+﻿using System;
 
-public sealed record Password
+namespace DomainDrivenDesign.Domain.Users
 {
-    public string Value { get; init;  }
-    public Password(string value)
+    /// <summary>
+    /// Represents a user's password within the domain.
+    /// </summary>
+    /// <remarks>
+    /// Implements the Value Object pattern, ensuring that passwords meet defined security requirements and are immutable.
+    /// </remarks>
+    public sealed record Password
     {
-        if (string.IsNullOrEmpty(value))
-        {
-            throw new ArgumentException("Password can not be null!");
-        }
+        /// <summary>
+        /// Gets the value of the password.
+        /// </summary>
+        public string Value { get; init; }
 
-        if (value.Length < 6)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Password"/> record with the specified value.
+        /// </summary>
+        /// <param name="value">The password string.</param>
+        /// <exception cref="ArgumentException">
+        /// Thrown when the provided password is null, empty, or does not meet the minimum length requirement.
+        /// </exception>
+        public Password(string value)
         {
-            throw new ArgumentException("Password should be at least 6 characters!");
-        }
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException("Password cannot be null or empty!");
+            }
 
-        Value = value;
+            if (value.Length < 6)
+            {
+                throw new ArgumentException("Password should be at least 6 characters long!");
+            }
+
+            Value = value;
+        }
     }
 }
